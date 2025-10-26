@@ -129,7 +129,7 @@ export default function DashboardLayout() {
 
         {/* Content Area */}
         <main className="flex-1 p-6 bg-gray-50">
-          {/*  This renders nested pages like /dashboard/settings */}
+          {/*  renders nested pages like /dashboard/settings */}
           <Outlet />
         </main>
       </div>

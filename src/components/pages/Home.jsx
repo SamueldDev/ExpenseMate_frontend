@@ -1,17 +1,12 @@
 
 
-
-
 import {  Link } from "react-router-dom";
-
-import { Menu } from "lucide-react"
-
 
 export default function Home() {
     
   return (
     <div>
-      <h1>Onboarding to ExpenseMate</h1>
+      <h1 className="text-center mt-4 text-lg font-bold ">Onboarding to ExpenseMate</h1>
       <p className="text-center mt-4 text-sm text-gray-600 dark:text-gray-300">
           Don’t have an account?{" "}
           <Link to="/register" className="text-blue-600 hover:underline">
@@ -24,7 +19,7 @@ export default function Home() {
           Login
         </Link>
       </p>
-      <Menu />
+    
     </div>
   )
 }

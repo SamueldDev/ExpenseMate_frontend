@@ -6,11 +6,17 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./components/pages/Home"
 import Dashboard from "./components/pages/Dashboard"
 import DashboardLayout from "./layouts/DashboardLayout"
-import Budget from "./components/pages/Budget"
+
 import BudgetCreate from "./components/pages/Budget/BudgetCreate"
 import BudgetManage from "./components/pages/Budget/BudgetManage"
 import BudgetTransaction from "./components/pages/Budget/BudgetTransaction"
 import BudgetHome from "./components/pages/Budget/BudgetHome"
+import BudgetEdit from "./components/pages/Budget/BudgetEdit"
+
+import TransactionHome from "./components/pages/Transaction/TransactionHome"
+// import AddTransaction from "./components/pages/Transaction/AddTransaction"
+
+
 import { Toaster } from "react-hot-toast"
 
 export default function App() {
@@ -59,11 +65,13 @@ export default function App() {
           <Route path="budget/create" element={<BudgetCreate />} />
           <Route path="budget/manage" element={<BudgetManage />} />
           <Route path="budget/transactions" element={<BudgetTransaction />} />
+          <Route path="budgets/:id/edit" element={<BudgetEdit />} />
 
+          {/* Transaction section */}
+          <Route path="transactions" element={<TransactionHome />} />
 
-          {/* <Route path="budget/create" element={<BudgetCreate />} />
-          <Route path="budget/manage" element={<BudgetManage />} />
-          <Route path="budget/transactions" element={<BudgetTransaction />} /> */}
+          
+          {/* <Route path="transactions/add" element={<AddTransaction />} /> */}
           
         </Route>
       </Routes>
@@ -71,6 +79,52 @@ export default function App() {
 
   )
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -114,21 +168,3 @@ export default function App() {
           <Route path="/dashboard/settings" element={<Settings />} />
           <Route path="/dashboard/transactions" element={<Transactions />} /> */}
         {/* </Route> */}
-
-
-
-//     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 dark:from-gray-950 dark:via-gray-900 dark:to-gray-800
-// px-4">
-//       <div className="w-full max-w-md bg-white dark:bg-neutral-900 rounded-2xl shadow-lg p-6 sm:p-8">
-//         <BrowserRouter>
-//           <Routes>
-//             <Route path="/" element={<Home />} />
-//             <Route path="/login" element={<Login />} />
-//             <Route path="/register" element={<Register />} />
-//             <Route path="/dashboard" element={<Dashboard />} />
-//           </Routes>
-//         </BrowserRouter>
-//       </div>
-//     </div>
-
-
