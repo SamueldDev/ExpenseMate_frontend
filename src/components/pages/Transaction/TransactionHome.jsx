@@ -1,110 +1,5 @@
 
 
-
-
-// import { Button } from "@/components/ui/button"
-// import { TabsContent,
-//          Tabs, 
-//          TabsList, 
-//          TabsTrigger, 
-//  } from "@/components/ui/tabs"
-
-// import TransactionModal from "./TransactionModal"
-
-// import { CardContent,
-//          Card, 
-//          CardHeader, 
-//          CardTitle,
-//  } from "@/components/ui/card"
-
-// import { Plus, Settings } from "lucide-react"
-// import { Link } from "react-router-dom";
-// import AddTransactionModal from "./AddTransactionModal";
-
-// export default function TransactionHome() {
-//   return (
-//     <div className="p-6 space-y-6">
-//       <div className="flex justify-between items-center">
-//         <h1 className="text-2xl font-semibold">Transactions</h1>
-
-//         <div className="flex space-x-2">
-//         {/* Instead of linking to a new page, open modal */}
-//         {/* <AddTransactionModal /> */}
-//         {/* <TransactionModal onSuccess={fetchTransactions} /> */}
-
-    
-//         <Link to="/dashboard/transactions/manage">
-//          <Button variant="outline" className="flex items-center space-x-1">
-//             <Settings className="w-4 h-4" />
-//             <span>Manage</span>
-//           </Button>
-        
-//         </Link>
-        
-//         </div>
-//       </div>
-
-//       <Tabs defaultValue="all">
-//         <TabsList>
-//           <TabsTrigger value="all">All</TabsTrigger>
-//           <TabsTrigger value="income">Income</TabsTrigger>
-//           <TabsTrigger value="expense">Expense</TabsTrigger>
-//         </TabsList>
-
-//         <TabsContent value="all">
-//           {/* All transactions table */}
-//         </TabsContent>
-//         <TabsContent value="income">
-//           {/* Income transactions */}
-//         </TabsContent>
-//         <TabsContent value="expense">
-//           {/* Expense transactions */}
-//         </TabsContent>
-//       </Tabs>
-//     </div>
-//   );
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -207,15 +102,18 @@ export default function TransactionHome() {
         </TabsContent>
       </Tabs>
 
-      {/* Add Transaction Modal */}
-      {addModalOpen && (
-        <TransactionModal
-          open={addModalOpen}
-          onClose={() => setAddModalOpen(false)}
-          onSuccess={fetchTransactions}
-          triggerButton={false}
-        />
-      )}
+      {/* Controlled Transaction Modal */}
+      <TransactionModal
+        openExternally={addModalOpen}
+        setOpenExternally={setAddModalOpen}
+        onSuccess={() => {
+          setAddModalOpen(false);
+          // Optionally refresh transactions
+        }}
+        triggerButton={false} // don't show internal trigger
+      />
+
+
     </div>
   );
 }

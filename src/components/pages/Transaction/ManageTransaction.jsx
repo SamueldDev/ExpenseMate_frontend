@@ -17,7 +17,7 @@ export default function ManageTransaction() {
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [selectedTx, setSelectedTx] = useState(null);
 
-  // 🔹 Fetch transactions
+  //  Fetch transactions
   const fetchTransactions = async () => {
     try {
       const res = await API.get("/transactions", {
@@ -75,7 +75,7 @@ export default function ManageTransaction() {
         onDelete={handleDelete}
       />
 
-      {/* 🟩 Add Transaction Modal */}
+      {/*  Add Transaction Modal */}
       {addModalOpen && (
         <TransactionModal
           openExternally={addModalOpen}
@@ -84,7 +84,7 @@ export default function ManageTransaction() {
         />
       )}
 
-      {/* 🟦 Edit Transaction Modal (reuses same component) */}
+      {/*  Edit Transaction Modal (reuses same component) */}
       {editModalOpen && (
         <TransactionModal
           editData={selectedTx}

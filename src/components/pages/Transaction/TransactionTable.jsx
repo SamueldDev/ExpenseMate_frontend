@@ -1,6 +1,5 @@
 
 
-
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -13,6 +12,7 @@ import {
 import { Pencil, Trash2 } from "lucide-react";
 
 export default function TransactionTable({ transactions = [], filter, onEdit, onDelete }) {
+    
   // Filter transactions by search input (client-side filtering)
   const filteredTransactions = transactions.filter((tx) =>
     tx.name?.toLowerCase().includes(filter.toLowerCase()) ||

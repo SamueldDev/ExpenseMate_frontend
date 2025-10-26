@@ -1,5 +1,4 @@
 
-
 import { useState, useEffect } from "react";
 import { useCallback } from "react";
 import {
@@ -30,19 +29,24 @@ import { toast } from "react-hot-toast";
 import API from "@/services/api";
 
 
-
-export default function TransactionModal({editData = null,
+export default function TransactionModal({
+  editData = null,
   triggerButton = true,
   onSuccess,
   openExternally,
-  setOpenExternally,}) {
+  setOpenExternally,
+  }) {
   
   const isEdit = !!editData;
   const [open, setOpen] = useState(false);
+  const isControlled = openExternally !== undefined && setOpenExternally !== undefined;
   const [budgets, setBudgets] = useState([]);
   const [date, setDate] = useState(null);
   const [transactionType, setTransactionType] = useState("");
   const { register, handleSubmit, setValue, reset } = useForm();
+
+  const actualOpen = isControlled ? openExternally : open;
+  const setActualOpen = isControlled ? setOpenExternally : setOpen;
 
 
   // Sync external open state (used for Manage Transactions table)
@@ -128,15 +132,17 @@ export default function TransactionModal({editData = null,
   };
 
   return (
-  <Dialog open={openExternally ?? open} onOpenChange={setOpenExternally ?? setOpen}>
-      {triggerButton && !isEdit && (
+  <Dialog open={actualOpen} onOpenChange={setActualOpen}>
+
+      {triggerButton && (
         <DialogTrigger asChild>
-          <Button className="flex items-center gap-2">
+            <Button className="flex items-center gap-2">
             <PlusCircle className="w-4 h-4" />
-            Add Transaction
-          </Button>
+            {isEdit ? "Edit Transaction" : "Add Transaction"}
+            </Button>
         </DialogTrigger>
-      )}
+        )}
+
 
       <DialogContent className="max-w-md">
         <DialogHeader>
@@ -163,19 +169,19 @@ export default function TransactionModal({editData = null,
             </RadioGroup>
           </div>
 
-          {/* Name */}
+      
           <div>
             <Label>Name</Label>
             <Input placeholder="e.g. Salary, Groceries, Rent" {...register("name", { required: true })} />
           </div>
 
-          {/* Amount */}
+      
           <div>
             <Label>Amount</Label>
             <Input type="number" step="0.01" placeholder="Enter amount" {...register("amount", { required: true })} />
           </div>
 
-          {/* Category */}
+       
           <div>
             <Label>Category</Label>
             <Input placeholder="e.g. Food, Transport" {...register("category")} />
@@ -204,7 +210,6 @@ export default function TransactionModal({editData = null,
             </div>
           )}
 
-          {/* Date Picker */}
           <div>
             <Label>Date</Label>
             <Popover>
@@ -220,13 +225,11 @@ export default function TransactionModal({editData = null,
             </Popover>
           </div>
 
-          {/* Note */}
           <div>
             <Label>Note (optional)</Label>
             <Textarea placeholder="Add a short note..." {...register("note")} />
           </div>
 
-          {/* Save Button */}
           <Button type="submit" className="w-full mt-2">
             {isEdit ? "Update Transaction" : "Save Transaction"}
           </Button>

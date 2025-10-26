@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 export default function TransactionFilter({ filter, setFilter }) {
   const [searchTerm, setSearchTerm] = useState(filter);
 
-  // Optional debounce: prevents too many state updates while typing
+  // debounce: prevents too many state updates while typing
   useEffect(() => {
     const delay = setTimeout(() => {
       setFilter(searchTerm);
