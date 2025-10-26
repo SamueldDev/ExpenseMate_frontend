@@ -1,5 +1,7 @@
 
 
+
+// can be configured for mobile later
 // import { useEffect, useState } from "react";
 // import { toast } from "react-hot-toast";
 // import API from "@/services/api";

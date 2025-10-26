@@ -14,6 +14,7 @@ import BudgetHome from "./components/pages/Budget/BudgetHome"
 import BudgetEdit from "./components/pages/Budget/BudgetEdit"
 
 import TransactionHome from "./components/pages/Transaction/TransactionHome"
+import ManageTransaction from "./components/pages/Transaction/ManageTransaction"
 // import AddTransaction from "./components/pages/Transaction/AddTransaction"
 
 
@@ -38,7 +39,7 @@ export default function App() {
         <Route
           path="/login"
           element={
-            <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 dark:from-gray-950 dark:via-gray-900 dark:to-gray-800 px-4">
+            <div className="min-h-screen flex flex-col items-center justify-center bg-linear-to-br from-gray-100 via-gray-200 to-gray-300 dark:from-gray-950 dark:via-gray-900 dark:to-gray-800 px-4">
               <div className="w-full max-w-md bg-white dark:bg-neutral-900 rounded-2xl shadow-lg p-6 sm:p-8">
                 <Login />
               </div>
@@ -69,8 +70,9 @@ export default function App() {
 
           {/* Transaction section */}
           <Route path="transactions" element={<TransactionHome />} />
+          <Route path="transactions/manage" element={<ManageTransaction />} />
 
-          
+
           {/* <Route path="transactions/add" element={<AddTransaction />} /> */}
           
         </Route>
