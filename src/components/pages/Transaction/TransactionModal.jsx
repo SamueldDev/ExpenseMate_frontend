@@ -36,6 +36,8 @@ export default function TransactionModal({
   openExternally,
   setOpenExternally,
   }) {
+
+  
   
   const isEdit = !!editData;
   const [open, setOpen] = useState(false);

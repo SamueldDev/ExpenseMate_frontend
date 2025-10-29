@@ -34,7 +34,7 @@ export default function ManageTransaction() {
     fetchTransactions();
   }, []);
 
-  // 🔹 Delete handler
+  // Delete handler
   const handleDelete = async (id) => {
     try {
       await API.delete(`/transactions/${id}`, {
@@ -81,6 +81,7 @@ export default function ManageTransaction() {
           openExternally={addModalOpen}
           setOpenExternally={setAddModalOpen}
           onSuccess={fetchTransactions}
+          triggerButton={false}
         />
       )}
 

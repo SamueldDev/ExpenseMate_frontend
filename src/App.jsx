@@ -15,7 +15,7 @@ import BudgetEdit from "./components/pages/Budget/BudgetEdit"
 
 import TransactionHome from "./components/pages/Transaction/TransactionHome"
 import ManageTransaction from "./components/pages/Transaction/ManageTransaction"
-// import AddTransaction from "./components/pages/Transaction/AddTransaction"
+import BudgetDetail from "./components/pages/Budget/BudgetDetail"
 
 
 import { Toaster } from "react-hot-toast"
@@ -66,6 +66,7 @@ export default function App() {
           <Route path="budget/create" element={<BudgetCreate />} />
           <Route path="budget/manage" element={<BudgetManage />} />
           <Route path="budget/transactions" element={<BudgetTransaction />} />
+          <Route path="budgets/:id" element={<BudgetDetail />} />
           <Route path="budgets/:id/edit" element={<BudgetEdit />} />
 
           {/* Transaction section */}

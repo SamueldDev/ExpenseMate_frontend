@@ -9,10 +9,12 @@ import { Card,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button"
 import { Trash2, Edit, PlusCircle } from "lucide-react";
+import BudgetTransactionsModal from "./BudgetTransactionsModal";
 
 
 export default function BudgetManage() {
      const [budgets, setBudgets] = useState([]);
+     const [selectedBudget, setSelectedBudget] = useState(null);
 
   useEffect(() => {  
     fetchBudgets();
@@ -66,9 +68,12 @@ export default function BudgetManage() {
                 key={budget.id}
                 className="relative group hover:shadow-lg transition p-4"
               >
-                <Link to={`/budgets/${budget._id}`}>
+                {/* <Link to={`/budgets/${budget._id}`}> */}
+                
                   <CardContent>
+                    <Link to={`/dashboard/budgets/${budget._id}`}>
                     <h2 className="text-lg font-semibold mb-2">{budget.name}</h2>
+                    </Link>
                     <p className="text-sm text-gray-600">Total: ₦{budget.total_amount}</p>
                     <p className="text-sm text-gray-600">Spent: ₦{budget.spent_amount}</p>
                     <p className="text-sm text-gray-600">Limit: ₦{budget.limit_amount}</p>
@@ -78,8 +83,17 @@ export default function BudgetManage() {
                     <div className="mt-2 text-xs text-gray-500">
                       {spentPercent}% spent
                     </div>
+
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        className="mt-3 w-full"
+                        onClick={() => setSelectedBudget(budget)}
+                      >
+                        View Transactions
+                    </Button>
                   </CardContent>
-                </Link>
+                {/* </Link> */}
 
                 {/* Hover Buttons */}
                 <div className="absolute top-2 right-2 hidden group-hover:flex gap-2">
@@ -96,6 +110,13 @@ export default function BudgetManage() {
             );
           })}
         </div>
+          )}
+
+          {selectedBudget && (
+            <BudgetTransactionsModal
+              budget={selectedBudget}
+              onClose={() => setSelectedBudget(null)}
+            />
           )}
     </div>
   )
