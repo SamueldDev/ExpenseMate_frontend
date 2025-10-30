@@ -9,6 +9,8 @@ import TransactionModal from "./TransactionModal";
 
 import API from "@/services/api";
 import { toast } from "react-hot-toast";
+import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react"; 
 
 export default function ManageTransaction() {
   const [filter, setFilter] = useState("");
@@ -34,7 +36,6 @@ export default function ManageTransaction() {
     fetchTransactions();
   }, []);
 
-  // Delete handler
   const handleDelete = async (id) => {
     try {
       await API.delete(`/transactions/${id}`, {
@@ -50,6 +51,15 @@ export default function ManageTransaction() {
 
   return (
     <section className="p-6 space-y-4">
+      <div className="flex items-center gap-2 mb-4">
+              <Link
+                to="/dashboard/transactions"
+                className="flex items-center text-sm text-blue-600 hover:underline"
+              >
+                <ArrowLeft className="w-4 h-4 mr-1" />
+                Back to Transactions
+              </Link>
+            </div>
       {/* Header */}
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-semibold">⚙️ Manage Transactions</h2>
@@ -75,7 +85,7 @@ export default function ManageTransaction() {
         onDelete={handleDelete}
       />
 
-      {/*  Add Transaction Modal */}
+      {/* Add Transaction Modal */}
       {addModalOpen && (
         <TransactionModal
           openExternally={addModalOpen}

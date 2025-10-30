@@ -38,6 +38,7 @@ export default function TransactionHome() {
 
   return (
     <div className="p-6 space-y-6">
+
       {/* Header */}
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-semibold">💰 Transactions</h1>
@@ -108,11 +109,9 @@ export default function TransactionHome() {
         setOpenExternally={setAddModalOpen}
         onSuccess={() => {
           setAddModalOpen(false);
-          // Optionally refresh transactions
         }}
-        triggerButton={false} // don't show internal trigger
+        triggerButton={false}
       />
-
 
     </div>
   );

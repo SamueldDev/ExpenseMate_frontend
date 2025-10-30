@@ -6,8 +6,7 @@ import API from "@/services/api";
 import { Card, CardContent } from "@/components/ui/card";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react"; // optional icon
-
+import { ArrowLeft } from "lucide-react"; 
 
 
 export default function BudgetDetail() {

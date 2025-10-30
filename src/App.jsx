@@ -72,9 +72,6 @@ export default function App() {
           {/* Transaction section */}
           <Route path="transactions" element={<TransactionHome />} />
           <Route path="transactions/manage" element={<ManageTransaction />} />
-
-
-          {/* <Route path="transactions/add" element={<AddTransaction />} /> */}
           
         </Route>
       </Routes>
@@ -86,88 +83,3 @@ export default function App() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  {/* Dashboard Layout (wraps all dashboard-related routes) */}
-        {/* <Route element={<DashboardLayout />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/dashboard/budgets" element={<Budget />} /> */}
-          {/* <Route path="/dashboard/analytics" element={<Analytics />} />
-          <Route path="/dashboard/settings" element={<Settings />} />
-          <Route path="/dashboard/transactions" element={<Transactions />} /> */}
-        {/* </Route> */}

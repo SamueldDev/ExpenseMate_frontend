@@ -67,7 +67,7 @@ export default function DashboardLayout() {
           <Link to="/dashboard/transactions" onClick={() => setMenuOpen(false)}>
             Transactions
           </Link>
-          <Link to="/dashboard/transactions" onClick={() => setMenuOpen(false)}>
+          <Link to="/dashboard/analytics" onClick={() => setMenuOpen(false)}>
             Analytics
           </Link>
           <Link to="/dashboard/settings" onClick={() => setMenuOpen(false)}>
