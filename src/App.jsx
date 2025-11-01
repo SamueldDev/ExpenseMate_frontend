@@ -16,6 +16,7 @@ import BudgetEdit from "./components/pages/Budget/BudgetEdit"
 import TransactionHome from "./components/pages/Transaction/TransactionHome"
 import ManageTransaction from "./components/pages/Transaction/ManageTransaction"
 import BudgetDetail from "./components/pages/Budget/BudgetDetail"
+import AnalyticsHome from "./components/pages/Analytics/AnalyticsHome"
 
 
 import { Toaster } from "react-hot-toast"
@@ -72,6 +73,9 @@ export default function App() {
           {/* Transaction section */}
           <Route path="transactions" element={<TransactionHome />} />
           <Route path="transactions/manage" element={<ManageTransaction />} />
+
+          {/* Analytics Section */}
+          <Route path="analytics" element={<AnalyticsHome />} />
           
         </Route>
       </Routes>
